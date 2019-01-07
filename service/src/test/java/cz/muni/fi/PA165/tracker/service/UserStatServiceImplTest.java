@@ -84,13 +84,11 @@ public class UserStatServiceImplTest extends AbstractTestNGSpringContextTests {
 
         activity1 =  new SportActivity();
         activity1.setActivityName("running");
-        activity1.setWeightCoefficient(1.3);
         activity1.setBurnedCaloriesPerHour(120);
 
         activity2 = new SportActivity();
         activity2.setBurnedCaloriesPerHour(300);
         activity2.setActivityName("hiding");
-        activity2.setWeightCoefficient(1.1);
 
         record1 = new ActivityRecord();
         record1.setUser(user);

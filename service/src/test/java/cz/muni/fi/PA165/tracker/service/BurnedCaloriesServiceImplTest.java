@@ -76,7 +76,6 @@ public class BurnedCaloriesServiceImplTest extends AbstractTestNGSpringContextTe
         user.setBirthdate(LocalDate.of(1999, 10, 15));
 
         sportActivity = new SportActivity();
-        sportActivity.setWeightCoefficient(1);
         sportActivity.setBurnedCaloriesPerHour(100);
         sportActivity.setActivityName("Running");
 

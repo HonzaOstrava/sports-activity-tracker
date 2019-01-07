@@ -44,22 +44,18 @@ public class SportActivityDAOImplTest extends AbstractTestNGSpringContextTests {
         activity1 = new SportActivity();
         activity1.setActivityName("Football");
         activity1.setBurnedCaloriesPerHour(234);
-        activity1.setWeightCoefficient(1.0);
 
         activity2 = new SportActivity();
         activity2.setActivityName("Beerpong");
         activity2.setBurnedCaloriesPerHour(15);
-        activity2.setWeightCoefficient(1.0);
 
         activity3 = new SportActivity();
         activity3.setActivityName("Chess");
         activity3.setBurnedCaloriesPerHour(120);
-        activity3.setWeightCoefficient(1.0);
 
         activity4 = new SportActivity();
         activity4.setActivityName("Cleaning up");
         activity4.setBurnedCaloriesPerHour(400);
-        activity4.setWeightCoefficient(1.0);
     }
 
     @Test
@@ -115,7 +111,6 @@ public class SportActivityDAOImplTest extends AbstractTestNGSpringContextTests {
         entityManager.flush();
         activity1.setActivityName("Bowling");
         activity1.setBurnedCaloriesPerHour(300);
-        activity1.setWeightCoefficient(1.2);
         sportActivityDAO.update(activity1);
         Assert.assertEquals(sportActivityDAO.getById(activity1.getId()),activity1);
     }
@@ -139,14 +134,12 @@ public class SportActivityDAOImplTest extends AbstractTestNGSpringContextTests {
     public void testActivityWithoutBurnedCal(){
         SportActivity incompleteActivity = new SportActivity();
         incompleteActivity.setActivityName("Feasting");
-        incompleteActivity.setWeightCoefficient(1.0);
         sportActivityDAO.create(incompleteActivity);
     }
 
     @Test(expectedExceptions = ConstraintViolationException.class)
     public void testActivityWithoutName(){
         SportActivity incompleteActivity = new SportActivity();
-        incompleteActivity.setWeightCoefficient(1.0);
         incompleteActivity.setBurnedCaloriesPerHour(420);
         sportActivityDAO.create(incompleteActivity);
     }
@@ -154,13 +147,7 @@ public class SportActivityDAOImplTest extends AbstractTestNGSpringContextTests {
     public void testActivityWithNegativeBurnedCal(){
          SportActivity activity = new SportActivity();
         activity.setActivityName("Feasting");
-        activity.setWeightCoefficient(1.0);
         activity.setBurnedCaloriesPerHour(-400);
         sportActivityDAO.create(activity);
-    }
-    @Test(expectedExceptions = ConstraintViolationException.class)
-    public void testActivityWithNegativeCoefficient(){
-        activity3.setWeightCoefficient(-5);
-        sportActivityDAO.create(activity3);
     }
 }

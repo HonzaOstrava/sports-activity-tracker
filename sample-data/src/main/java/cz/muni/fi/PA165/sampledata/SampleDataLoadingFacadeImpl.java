@@ -42,13 +42,13 @@ public class SampleDataLoadingFacadeImpl implements SampleDataLoadingFacade {
 
     @Override
     public void loadData(){
-        SportActivity football = activity("Football", 1.2, 200);
-        SportActivity running = activity("Running", 1.3, 400);
-        SportActivity snowboarding = activity("Snowboarding", 1.1, 150);
-        SportActivity weightlifting = activity("WeightLifting", 1.3, 450);
-        SportActivity skiing = activity("Skiing", 1.2, 150);
-        SportActivity powerwalking = activity("PowerWalking", 1.0, 100);
-        SportActivity cycling = activity("Cycling", 1.2, 190);
+        SportActivity football = activity("Football",200);
+        SportActivity running = activity("Running",400);
+        SportActivity snowboarding = activity("Snowboarding",150);
+        SportActivity weightlifting = activity("WeightLifting",450);
+        SportActivity skiing = activity("Skiing",150);
+        SportActivity powerwalking = activity("PowerWalking",100);
+        SportActivity cycling = activity("Cycling", 190);
 
         log.info("All activities loaded!");
 
@@ -142,10 +142,9 @@ public class SampleDataLoadingFacadeImpl implements SampleDataLoadingFacade {
     }
 
 
-    public SportActivity activity(String name, double weight, double cph ){
+    public SportActivity activity(String name, double cph ){
         SportActivity activity = new SportActivity();
         activity.setActivityName(name);
-        activity.setWeightCoefficient(weight);
         activity.setBurnedCaloriesPerHour(cph);
         sportActivityService.create(activity);
         return activity;

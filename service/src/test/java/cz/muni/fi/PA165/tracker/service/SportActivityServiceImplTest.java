@@ -49,17 +49,14 @@ public class SportActivityServiceImplTest extends AbstractTestNGSpringContextTes
     public void setup(){
         activity1 = new SportActivity();
         activity1.setActivityName("Waterboarding");
-        activity1.setWeightCoefficient(2.0);
         activity1.setBurnedCaloriesPerHour(400.0);
 
         activity2 = new SportActivity();
         activity2.setActivityName("Dumpster diving");
-        activity2.setWeightCoefficient(1.5);
         activity2.setBurnedCaloriesPerHour(420.0);
 
         activity3 = new SportActivity();
         activity3.setActivityName("Segway-ing");
-        activity3.setWeightCoefficient(1.2);
         activity3.setBurnedCaloriesPerHour(30);
 
         MockitoAnnotations.initMocks(this);

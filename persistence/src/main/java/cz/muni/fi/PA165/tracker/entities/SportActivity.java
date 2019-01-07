@@ -33,10 +33,6 @@ public class SportActivity {
     private double burnedCaloriesPerHour;
 
     @NotNull
-    @Min(0)
-    private double weightCoefficient;
-
-    @NotNull
     @OneToMany(mappedBy = "sportActivity")
     private List<ActivityRecord> activityRecordList = new ArrayList<>();
 
@@ -63,14 +59,6 @@ public class SportActivity {
 
     public void setBurnedCaloriesPerHour(double burnedCaloriesPerHour) {
         this.burnedCaloriesPerHour = burnedCaloriesPerHour;
-    }
-
-    public double getWeightCoefficient() {
-        return weightCoefficient;
-    }
-
-    public void setWeightCoefficient(double coefficient) {
-        this.weightCoefficient = coefficient;
     }
 
     @Override

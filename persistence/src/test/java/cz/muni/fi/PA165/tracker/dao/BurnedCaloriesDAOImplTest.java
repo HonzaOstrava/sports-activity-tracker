@@ -64,11 +64,10 @@ public class BurnedCaloriesDAOImplTest extends AbstractTestNGSpringContextTests 
         return user;
     }
 
-    private SportActivity prepareSportActivity(String activityName, double burnedCaloriesPerHour, double weightCoefficient) {
+    private SportActivity prepareSportActivity(String activityName, double burnedCaloriesPerHour) {
         SportActivity sportActivity = new SportActivity();
         sportActivity.setActivityName(activityName);
         sportActivity.setBurnedCaloriesPerHour(burnedCaloriesPerHour);
-        sportActivity.setWeightCoefficient(weightCoefficient);
         return sportActivity;
     }
 
@@ -103,10 +102,10 @@ public class BurnedCaloriesDAOImplTest extends AbstractTestNGSpringContextTests 
         User user2 = prepareUser("lucy@email.com", "Lucy", "Doe", Gender.FEMALE, "password2", 55, birthdate2, UserType.USER);
         entityManager.persist(user2);
 
-        SportActivity sportActivity1 = prepareSportActivity("Running", 1000, 1.0);
+        SportActivity sportActivity1 = prepareSportActivity("Running", 1000);
         entityManager.persist(sportActivity1);
 
-        SportActivity sportActivity2 = prepareSportActivity("Swimming", 1500, 0.8);
+        SportActivity sportActivity2 = prepareSportActivity("Swimming", 1500);
         entityManager.persist(sportActivity2);
 
         LocalDateTime startTime1 = LocalDateTime.of(2018, 10, 25, 15, 0);

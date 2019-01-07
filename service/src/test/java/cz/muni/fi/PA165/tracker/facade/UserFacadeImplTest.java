@@ -280,13 +280,11 @@ public class UserFacadeImplTest extends AbstractTestNGSpringContextTests {
     public void getStatisticsTest() {
         SportActivity activity1 =  new SportActivity();
         activity1.setActivityName("running");
-        activity1.setWeightCoefficient(1.3);
         activity1.setBurnedCaloriesPerHour(120);
 
         SportActivity activity2 = new SportActivity();
         activity2.setBurnedCaloriesPerHour(300);
         activity2.setActivityName("hiding");
-        activity2.setWeightCoefficient(1.1);
 
         ActivityRecord record1 = new ActivityRecord();
         record1.setUser(user);
@@ -310,13 +308,11 @@ public class UserFacadeImplTest extends AbstractTestNGSpringContextTests {
 
         SportActivityDTO activityDTO = new SportActivityDTO();
         activityDTO.setActivityName("running");
-        activityDTO.setWeightCoefficient(1.3);
         activityDTO.setBurnedCaloriesPerHour(120);
 
         SportActivityDTO activity2DTO = new SportActivityDTO();
         activity2DTO.setBurnedCaloriesPerHour(300);
         activity2DTO.setActivityName("hiding");
-        activity2DTO.setWeightCoefficient(1.1);
 
         BurnedCalories cals1 = new BurnedCalories();
         cals1.setActivityRecord(record1);

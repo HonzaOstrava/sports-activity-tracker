@@ -23,8 +23,6 @@ public class SportActivityCreateDTO {
     @Min(value = 1, message = "Must be bigger than 0")
     private double burnedCaloriesPerHour;
 
-    private double weightCoefficient;
-
     public String getActivityName() {
         return activityName;
     }
@@ -42,26 +40,17 @@ public class SportActivityCreateDTO {
         this.burnedCaloriesPerHour = burnedCaloriesPerHour;
     }
 
-    public double getWeightCoefficient() {
-        return weightCoefficient;
-    }
-
-    public void setWeightCoefficient(double coefficient) {
-        this.weightCoefficient = coefficient;
-    }
-
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (!(o instanceof SportActivityCreateDTO)) return false;
         SportActivityCreateDTO that = (SportActivityCreateDTO) o;
         return Double.compare(that.getBurnedCaloriesPerHour(), getBurnedCaloriesPerHour()) == 0 &&
-                Double.compare(that.getWeightCoefficient(), getWeightCoefficient()) == 0 &&
                 getActivityName().equals(that.getActivityName());
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getActivityName(), getBurnedCaloriesPerHour(), getWeightCoefficient());
+        return Objects.hash(getActivityName(), getBurnedCaloriesPerHour());
     }
 }
